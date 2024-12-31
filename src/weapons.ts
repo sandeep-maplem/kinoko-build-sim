@@ -20,11 +20,18 @@ const MAX_TOTAL = 20;
 let totalCount = 0;
 const WEAPON_QUERY_KEY = 'weapons';
 
-const weaponList = document.getElementById('weapons-option-list') as HTMLDivElement;
+function ensureWeaponList() {
+  const weaponList = document.getElementById('weapons-option-list') as HTMLDivElement;
+  if (!weaponList) {
+    throw new Error('weaponList could not be found.');
+  }
+  return weaponList;
+}
 
 function renderWeapons() {
-  const totalCountDisplay = document.getElementById('weapons-total-count') as HTMLSpanElement;
+  const weaponList  = ensureWeaponList();
   weaponList.innerHTML = '';
+  const totalCountDisplay = document.getElementById('weapons-total-count') as HTMLSpanElement;
   weaponOptions.forEach((option, index) => {
     const item = document.createElement('div');
     item.classList.add('weapons-option-item');
@@ -42,23 +49,6 @@ function renderWeapons() {
   totalCountDisplay.textContent = `${totalCount}`;
   updateURL();
 }
-
-weaponList.addEventListener('click', (event) => {
-  const target = event.target as HTMLButtonElement;
-  const action = target.dataset.action;
-  const index = Number(target.dataset.index);
-
-  if (action && index !== undefined) {
-    if (action === 'increase' && totalCount < MAX_TOTAL && weaponOptions[index].count < 10) {
-      weaponOptions[index].count++;
-      totalCount++;
-    } else if (action === 'decrease' && weaponOptions[index].count > 0) {
-      weaponOptions[index].count--;
-      totalCount--;
-    }
-    renderWeapons();
-  }
-});
 
 function updateURL() {
   const params = new URLSearchParams(window.location.search);
@@ -100,4 +90,34 @@ function loadWeaponsFromURL() {
 export function updateWeaponsUI() {
   loadWeaponsFromURL();
   renderWeapons();
+  const weaponList = ensureWeaponList();
+
+  if (!weaponList.dataset.listener) {
+    weaponList.addEventListener('click', (event) => {
+      const target = event.target as HTMLButtonElement;
+      const action = target.dataset.action;
+      const index = Number(target.dataset.index);
+
+      if (action && index !== undefined) {
+        if (action === 'increase' && totalCount < MAX_TOTAL && weaponOptions[index].count < 10) {
+          weaponOptions[index].count++;
+          totalCount++;
+        } else if (action === 'decrease' && weaponOptions[index].count > 0) {
+          weaponOptions[index].count--;
+          totalCount--;
+        }
+        renderWeapons();
+      }
+    });
+
+    weaponList.dataset.listener = 'true';
+  }
+}
+
+// for test
+export function getWeaponState() {
+  return {
+    totalCount,
+    weaponOptions: weaponOptions.map(option => ({ ...option }))
+  };
 }
