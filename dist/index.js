@@ -1,2 +1,2 @@
-"use strict";(()=>{console.log("Hello, TypeScript!");})();
+"use strict";(()=>{document.querySelectorAll(".tab").forEach(e=>{e.addEventListener("click",()=>{let t=e.getAttribute("data-target");if(t){let o=document.querySelector(t);if(o){let c=o.offsetTop-50;window.scrollTo({top:c,behavior:"smooth"})}}})});window.addEventListener("scroll",()=>{let e=window.scrollY+60;document.querySelectorAll("section").forEach(t=>{let o=t.getAttribute("id");if(o){let c=t.offsetTop,s=t.offsetHeight;if(e>=c&&e<c+s){document.querySelectorAll(".tab").forEach(l=>{l.classList.remove("active")});let r=document.querySelector(`[data-target="#${o}"]`);r&&r.classList.add("active")}}})});})();
 //# sourceMappingURL=index.js.map

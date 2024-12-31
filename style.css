@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  /* 固定タブ */
+  .tabs {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .tab {
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+
+  .tab.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  /* セクションスタイル */
+  .content section {
+    padding: 80px 20px;
+    border-bottom: 1px solid #eee;
+    min-height: 100vh;
+  }
+
+  h2 {
+    margin-top: 60px;
+  }
