@@ -41,9 +41,11 @@ function renderEquipments() {
     item.innerHTML = `
       <span class="equipments-option-name">${option.name}</span>
       <div class="equipments-counter">
+        <button data-index="${index}" data-action="decrease10">-10</button>
         <button data-index="${index}" data-action="decrease">-</button>
         <span>${option.count}</span>
         <button data-index="${index}" data-action="increase">+</button>
+        <button data-index="${index}" data-action="increase10">+10</button>
       </div>
     `;
     equipmentList.appendChild(item);
@@ -106,12 +108,23 @@ export function updateEquipmentsUI() {
       const index = Number(target.dataset.index);
 
       if (action && index !== undefined) {
+        const option = equipmentOptions[index];
+
         if (action === 'increase' && totalCount < MAX_TOTAL && equipmentOptions[index].count < 10) {
-          equipmentOptions[index].count++;
+          option.count++;
           totalCount++;
         } else if (action === 'decrease' && equipmentOptions[index].count > 0) {
-          equipmentOptions[index].count--;
+          option.count--;
           totalCount--;
+        } else if (action === 'increase10' && totalCount < MAX_TOTAL) {
+          const remaining = MAX_TOTAL - totalCount;
+          const increment = Math.min(10, remaining, 10 - option.count);
+          option.count += increment;
+          totalCount += increment;
+        } else if (action === 'decrease10' && option.count > 0) {
+          const decrement = Math.min(10, option.count);
+          option.count -= decrement;
+          totalCount -= decrement;
         }
         renderEquipments();
       }

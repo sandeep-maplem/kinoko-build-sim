@@ -1,130 +1,162 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>キノコ伝説 - ビルドシミュレーター</title>
-  <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/resetModal.css">
-  <link rel="stylesheet" href="./css/equipments.css">
-  <link rel="stylesheet" href="./css/skills.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キノコ伝説 - ビルドシミュレーター</title>
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/resetModal.css">
+    <link rel="stylesheet" href="./css/jobs.css">
+    <link rel="stylesheet" href="./css/equipments.css">
+    <link rel="stylesheet" href="./css/skills.css">
 </head>
+
 <body>
-  <div class="tabs">
-    <div class="tab" data-target="#jobs">職業</div>
-    <div class="tab" data-target="#equipments">装備</div>
-    <div class="tab" data-target="#skills">技能</div>
-    <div class="tab" data-target="#pals">仲間</div>
-    <div class="tab" data-target="#relics">遺物</div>
-    <div class="tab" data-target="#statue">彫像</div>
-    <div class="tab" data-target="#back-talents">背飾り能力</div>
-    <div class="tab" data-target="#enchantments">神器付魔</div>
-    <div class="tab" data-target="#awakening">職業覚醒</div>
-    <div class="tab" data-target="#mounts">騎乗</div>
-    <div class="tab" data-target="#artifacts">神器</div>
-    <div class="tab" data-target="#back-accessories">背飾り</div>
-    <div class="tab" data-target="#avian">ペット</div>
-    <div class="tab" data-target="#souls">武魂</div>
-  </div>
+    <div class="tabs">
+        <div class="tab" data-target="#jobs">職業</div>
+        <div class="tab" data-target="#equipments">装備</div>
+        <div class="tab" data-target="#skills">技能</div>
+        <div class="tab" data-target="#pals">仲間</div>
+        <div class="tab" data-target="#relics">遺物</div>
+        <div class="tab" data-target="#statue">彫像</div>
+        <div class="tab" data-target="#back-talents">背飾り能力</div>
+        <div class="tab" data-target="#enchantments">神器付魔</div>
+        <div class="tab" data-target="#awakening">職業覚醒</div>
+        <div class="tab" data-target="#mounts">騎乗</div>
+        <div class="tab" data-target="#artifacts">神器</div>
+        <div class="tab" data-target="#back-accessories">背飾り</div>
+        <div class="tab" data-target="#avian">ペット</div>
+        <div class="tab" data-target="#souls">武魂</div>
+    </div>
 
-  <div class="title-area">
-    <h1>キノコ伝説 - ビルドシミュレーター</h1>
-  </div>
+    <div class="title-area">
+        <h1>キノコ伝説 - ビルドシミュレーター</h1>
+    </div>
 
-  <div class="content">
-    <section id="jobs">
-      <h2>職業</h2>
-      <p>職業を選択します。</p>
-    </section>
+    <div class="content">
+        <section id="jobs">
+            <div class="section-header">
+                <h2>職業</h2>
+            </div>
+            <div class="jobs-option-container">
+                <div class="job-options">
+                    <input type="radio" id="job-1" name="job" value="1" checked>
+                    <label for="job-1">武聖</label>
 
-    <section id="equipments">
-        <div class="section-header">
-          <h2>装備</h2>
-          <button id="reset-equipments-btn" class="reset-btn" title="装備をリセット">↺</button>
-        </div>
-      <div class="equipments-option-container">
-        <div id="equipments-option-list">
-        </div>
-        <div class="equipments-summary">
-          合計オプション数: <span id="equipments-total-count">0</span> / 20
-        </div>
-      </div>
+                    <input type="radio" id="job-2" name="job" value="2">
+                    <label for="job-2">戦神</label>
 
-    </section>
+                    <input type="radio" id="job-3" name="job" value="3">
+                    <label for="job-3">聖狩</label>
 
-    <section id="skills">
-      <div class="section-header">
-        <h2>技能</h2>
-        <button id="reset-skills-btn" class="reset-btn" title="スキルをリセット">↺</button>
-      </div>
-      <div class="skills-container">
-        <div class="skills-selected">
-            <h3>選択済み技能</h3>
-            <div id="selected-skills" class="skills-list"></div>
-        </div>
+                    <input type="radio" id="job-4" name="job" value="4">
+                    <label for="job-4">羽皇</label>
 
-        <div class="skills-pool">
-            <h3>技能一覧</h3>
-            <div id="skills-list" class="skills-grid"></div>
-        </div>
-      </div>
-    </section>
+                    <input type="radio" id="job-5" name="job" value="5">
+                    <label for="job-5">先知</label>
 
-    <section id="pals">
-      <h2>仲間</h2>
-      <p>仲間を選択します。</p>
-    </section>
+                    <input type="radio" id="job-6" name="job" value="6">
+                    <label for="job-6">魔王</label>
 
-    <section id="relics">
-      <h2>遺物</h2>
-      <p>遺物を選択します。</p>
-    </section>
+                    <input type="radio" id="job-7" name="job" value="7">
+                    <label for="job-7">獣王</label>
 
-    <section id="statue">
-      <h2>彫像</h2>
-      <p>彫像を選択します。</p>
-    </section>
+                    <input type="radio" id="job-8" name="job" value="8">
+                    <label for="job-8">霊尊</label>
+                </div>
+            </div>
+        </section>
 
-    <section id="back-talents">
-        <h2>背飾り能力</h2>
-        <p>背飾り能力を選択します。</p>
-      </section>
+        <section id="equipments">
+            <div class="section-header">
+                <h2>装備</h2>
+                <button id="reset-equipments-btn" class="reset-btn" title="装備をリセット">↺</button>
+            </div>
+            <div class="equipments-option-container">
+                <div id="equipments-option-list">
+                </div>
+                <div class="equipments-summary">
+                    合計オプション数: <span id="equipments-total-count">0</span> / 20
+                </div>
+            </div>
 
-      <section id="enchantments">
-        <h2>神器付魔</h2>
-        <p>神器付魔を選択します。</p>
-      </section>
+        </section>
 
-      <section id="awakening">
-        <h2>職業覚醒</h2>
-        <p>職業覚醒を選択します。</p>
-      </section>
+        <section id="skills">
+            <div class="section-header">
+                <h2>技能</h2>
+                <button id="reset-skills-btn" class="reset-btn" title="スキルをリセット">↺</button>
+            </div>
+            <div class="skills-container">
+                <div class="skills-selected">
+                    <h3>選択済み技能</h3>
+                    <div id="selected-skills" class="skills-list"></div>
+                </div>
 
-      <section id="mounts">
-        <h2>騎乗</h2>
-        <p>騎乗を選択します。</p>
-      </section>
+                <div class="skills-pool">
+                    <h3>技能一覧</h3>
+                    <div id="skills-list" class="skills-grid"></div>
+                </div>
+            </div>
+        </section>
 
-      <section id="artifacts">
-        <h2>神器</h2>
-        <p>神器を選択します。</p>
-      </section>
+        <section id="pals">
+            <h2>仲間</h2>
+            <p>仲間を選択します。</p>
+        </section>
 
-      <section id="back-accessories">
-        <h2>背飾り</h2>
-        <p>背飾りを選択します。</p>
-      </section>
+        <section id="relics">
+            <h2>遺物</h2>
+            <p>遺物を選択します。</p>
+        </section>
 
-      <section id="avian">
-        <h2>ペット</h2>
-        <p>ペットを選択します。</p>
-      </section>
+        <section id="statue">
+            <h2>彫像</h2>
+            <p>彫像を選択します。</p>
+        </section>
 
-      <section id="souls">
-        <h2>武魂</h2>
-        <p>武魂を選択します。</p>
-      </section>
-  </div>
-  <script src="./dist/index.js"></script>
+        <section id="back-talents">
+            <h2>背飾り能力</h2>
+            <p>背飾り能力を選択します。</p>
+        </section>
+
+        <section id="enchantments">
+            <h2>神器付魔</h2>
+            <p>神器付魔を選択します。</p>
+        </section>
+
+        <section id="awakening">
+            <h2>職業覚醒</h2>
+            <p>職業覚醒を選択します。</p>
+        </section>
+
+        <section id="mounts">
+            <h2>騎乗</h2>
+            <p>騎乗を選択します。</p>
+        </section>
+
+        <section id="artifacts">
+            <h2>神器</h2>
+            <p>神器を選択します。</p>
+        </section>
+
+        <section id="back-accessories">
+            <h2>背飾り</h2>
+            <p>背飾りを選択します。</p>
+        </section>
+
+        <section id="avian">
+            <h2>ペット</h2>
+            <p>ペットを選択します。</p>
+        </section>
+
+        <section id="souls">
+            <h2>武魂</h2>
+            <p>武魂を選択します。</p>
+        </section>
+    </div>
+    <script src="./dist/index.js"></script>
 </body>
+
 </html>

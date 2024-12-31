@@ -1,0 +1,31 @@
+.job-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.job-options label {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.job-options input[type="radio"] {
+  display: none;
+}
+
+.job-options label:hover {
+  border-color: #007BFF;
+  background-color: #f0f8ff;
+}
+
+.job-options input[type="radio"]:checked + label {
+  border-color: #007BFF;
+  background-color: #e0f0ff;
+  font-weight: bold;
+  color: #007BFF;
+}
