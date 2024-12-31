@@ -1,3 +1,5 @@
+import { showResetModal } from './resetModal';
+
 interface Skill {
   id: number;
   name: string;
@@ -129,6 +131,7 @@ function updateSkillSelectionUI() {
 function loadSkillsFromURL() {
   const params = new URLSearchParams(window.location.search);
   const skillIds = params.get(QUERY_KEY)?.split(',').map(id => parseInt(id)) || [];
+  selectedSkills.length = 0;
 
   skillIds.forEach(id => {
     if (selectedSkills.length < MAX_SELECTED) {
@@ -146,3 +149,9 @@ export function updateSkillsUI() {
   loadSkillsFromURL();
   renderSkills();
 }
+
+const resetSkillsBtn = document.getElementById('reset-skills-btn') as HTMLButtonElement;
+
+resetSkillsBtn.addEventListener('click', () => {
+  showResetModal(QUERY_KEY, '技能');
+});

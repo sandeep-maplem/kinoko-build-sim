@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>キノコ伝説 - ビルドシミュレーター</title>
   <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/weapons.css">
+  <link rel="stylesheet" href="./css/resetModal.css">
+  <link rel="stylesheet" href="./css/equipments.css">
   <link rel="stylesheet" href="./css/skills.css">
 </head>
 <body>
   <div class="tabs">
     <div class="tab" data-target="#jobs">職業</div>
-    <div class="tab" data-target="#weapons">武器</div>
+    <div class="tab" data-target="#equipments">装備</div>
     <div class="tab" data-target="#skills">技能</div>
     <div class="tab" data-target="#pals">仲間</div>
     <div class="tab" data-target="#relics">遺物</div>
@@ -36,29 +37,36 @@
       <p>職業を選択します。</p>
     </section>
 
-    <section id="weapons">
-      <h2>武器オプション</h2>
-      <p>武器オプションを選択します。</p>
-      <div class="weapons-option-container">
-        <div id="weapons-option-list">
+    <section id="equipments">
+        <div class="section-header">
+          <h2>装備</h2>
+          <button id="reset-equipments-btn" class="reset-btn" title="装備をリセット">↺</button>
         </div>
-        <div class="weapons-summary">
-          合計オプション数: <span id="weapons-total-count">0</span> / 20
+      <div class="equipments-option-container">
+        <div id="equipments-option-list">
+        </div>
+        <div class="equipments-summary">
+          合計オプション数: <span id="equipments-total-count">0</span> / 20
         </div>
       </div>
 
     </section>
 
     <section id="skills">
-      <h2>技能</h2>
-      <div class="skills-selected">
-        <h3>選択済み技能</h3>
-        <div id="selected-skills" class="skills-list"></div>
+      <div class="section-header">
+        <h2>技能</h2>
+        <button id="reset-skills-btn" class="reset-btn" title="スキルをリセット">↺</button>
       </div>
+      <div class="skills-container">
+        <div class="skills-selected">
+            <h3>選択済み技能</h3>
+            <div id="selected-skills" class="skills-list"></div>
+        </div>
 
-      <div class="skills-pool">
-        <h3>技能一覧</h3>
-        <div id="skills-list" class="skills-grid"></div>
+        <div class="skills-pool">
+            <h3>技能一覧</h3>
+            <div id="skills-list" class="skills-grid"></div>
+        </div>
       </div>
     </section>
 

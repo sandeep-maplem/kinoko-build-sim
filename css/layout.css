@@ -51,6 +51,26 @@ h1 {
   min-height: 100vh;
 }
 
-h2 {
-  margin-top: 20px;
+.section-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reset-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.reset-btn:hover {
+  color: #e63946;
+  transform: scale(1.1);
+}
+
+h2.section-title {
+  margin: 0;
+  display: inline;
 }
