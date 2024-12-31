@@ -48,11 +48,10 @@ const skills: Skill[] = [
 
 const selectedSkills: Skill[] = [];
 const MAX_SELECTED = 5;
-
-const skillsList = document.getElementById('skills-list') as HTMLDivElement;
-const selectedSkillsList = document.getElementById('selected-skills') as HTMLDivElement;
+const QUERY_KEY = 'skills';
 
 function renderSkills() {
+  const skillsList = document.getElementById('skills-list') as HTMLDivElement;
   skillsList.innerHTML = '';
   skills.forEach(skill => {
     const skillElement = document.createElement('img');
@@ -66,18 +65,8 @@ function renderSkills() {
   });
 }
 
-function toggleSkill(skill: Skill) {
-  const exists = selectedSkills.some(s => s.id === skill.id);
-
-  if (exists) {
-    removeSkill(skill);
-  } else if (selectedSkills.length < MAX_SELECTED) {
-    selectedSkills.push(skill);
-    renderSelectedSkills();
-  }
-}
-
 function renderSelectedSkills() {
+  const selectedSkillsList = document.getElementById('selected-skills') as HTMLDivElement;
   selectedSkillsList.innerHTML = '';
 
   selectedSkills.forEach(skill => {
@@ -92,6 +81,18 @@ function renderSelectedSkills() {
   });
 
   updateSkillSelectionUI();
+  updateURL();
+}
+
+function toggleSkill(skill: Skill) {
+  const exists = selectedSkills.some(s => s.id === skill.id);
+
+  if (exists) {
+    removeSkill(skill);
+  } else if (selectedSkills.length < MAX_SELECTED) {
+    selectedSkills.push(skill);
+    renderSelectedSkills();
+  }
 }
 
 function removeSkill(skill: Skill) {
@@ -100,6 +101,13 @@ function removeSkill(skill: Skill) {
     selectedSkills.splice(index, 1);
     renderSelectedSkills();
   }
+}
+
+function updateURL() {
+  const params = new URLSearchParams(window.location.search);
+  const selectedIds = selectedSkills.map(skill => skill.id).join(',');
+  params.set(QUERY_KEY, selectedIds);
+  history.replaceState(null, '', '?' + params.toString());
 }
 
 function updateSkillSelectionUI() {
@@ -113,7 +121,23 @@ function updateSkillSelectionUI() {
   });
 }
 
-export function updateSkillsUI() {
-  renderSkills();
+function loadSkillsFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const skillIds = params.get(QUERY_KEY)?.split(',').map(id => parseInt(id)) || [];
+
+  skillIds.forEach(id => {
+    if (selectedSkills.length < MAX_SELECTED) {
+      const skill = skills.find(s => s.id === id);
+      if (skill) {
+        selectedSkills.push(skill);
+      }
+    }
+  });
+
   renderSelectedSkills();
+}
+
+export function updateSkillsUI() {
+  loadSkillsFromURL();
+  renderSkills();
 }
