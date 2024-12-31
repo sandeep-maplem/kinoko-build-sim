@@ -63,7 +63,8 @@ function updateURL() {
     params.delete(WEAPON_QUERY_KEY);
   }
 
-  history.replaceState(null, '', '?' + params.toString());
+  const newPath = params.toString() ? '?' + params.toString() : window.location.pathname;
+  history.replaceState(null, '', newPath);
 }
 
 function loadWeaponsFromURL() {

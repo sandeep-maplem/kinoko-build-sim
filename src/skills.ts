@@ -106,8 +106,13 @@ function removeSkill(skill: Skill) {
 function updateURL() {
   const params = new URLSearchParams(window.location.search);
   const selectedIds = selectedSkills.map(skill => skill.id).join(',');
-  params.set(QUERY_KEY, selectedIds);
-  history.replaceState(null, '', '?' + params.toString());
+  if(selectedIds) {
+    params.set(QUERY_KEY, selectedIds);
+  }else {
+    params.delete(QUERY_KEY);
+  }
+  const newPath = params.toString() ? '?' + params.toString() : window.location.pathname;
+  history.replaceState(null, '', newPath);
 }
 
 function updateSkillSelectionUI() {
