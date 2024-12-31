@@ -56,5 +56,3 @@ weaponList.addEventListener('click', (event) => {
     updateWeaponsUI();
   }
 });
-
-updateWeaponsUI();

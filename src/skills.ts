@@ -113,4 +113,7 @@ function updateSkillSelectionUI() {
   });
 }
 
-renderSkills();
+export function updateSkillsUI() {
+  renderSkills();
+  renderSelectedSkills();
+}
