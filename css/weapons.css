@@ -1,0 +1,43 @@
+.weapons-option-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.weapons-option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.weapons-option-name {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.weapons-counter {
+  display: flex;
+  align-items: center;
+}
+
+.weapons-counter button {
+  padding: 5px 15px;
+  font-size: 1.2rem;
+}
+
+.weapons-counter span {
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+.weapons-summary {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}

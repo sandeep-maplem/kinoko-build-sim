@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>キノコ伝説 - ビルドシミュレーター</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/weapons.css">
 </head>
 <body>
   <div class="tabs">
@@ -35,8 +36,16 @@
     </section>
 
     <section id="weapons">
-      <h2>武器</h2>
-      <p>武器を選択します。</p>
+      <h2>武器オプション</h2>
+      <p>武器オプションを選択します。</p>
+      <div class="weapons-option-container">
+        <div id="weapons-option-list">
+        </div>
+        <div class="weapons-summary">
+          合計オプション数: <span id="weapons-total-count">0</span> / 20
+        </div>
+      </div>
+
     </section>
 
     <section id="skills">
