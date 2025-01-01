@@ -6,10 +6,10 @@
  * @param handler
  */
 export function addSafeEventListener(
-    element: HTMLElement,
-    eventName: keyof HTMLElementEventMap,
-    handler: EventListener
+  element: HTMLElement,
+  eventName: keyof HTMLElementEventMap,
+  handler: EventListener
 ) {
-    element.removeEventListener(eventName, handler);
-    element.addEventListener(eventName, handler);
+  element.removeEventListener(eventName, handler);
+  element.addEventListener(eventName, handler);
 }

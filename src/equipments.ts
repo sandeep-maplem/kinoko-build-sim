@@ -97,7 +97,7 @@ function loadEquipmentsFromURL() {
   });
 }
 
-export function updateEquipmentsUI() {
+export function initEquipmentsUI() {
   loadEquipmentsFromURL();
   renderEquipments();
   const equipmentList = ensureEquipmentList();
