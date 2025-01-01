@@ -1,4 +1,5 @@
 import { showResetModal } from './resetModal';
+import { addSafeEventListener } from './helper';
 
 interface Skill {
   id: number;
@@ -62,7 +63,7 @@ function renderSkills() {
     skillElement.dataset.id = String(skill.id);
     skillElement.alt = skill.name;
 
-    skillElement.addEventListener('click', () => toggleSkill(skill));
+    addSafeEventListener(skillElement, 'click', () => toggleSkill(skill));
     skillsList.appendChild(skillElement);
   });
 }
@@ -78,7 +79,7 @@ function renderSelectedSkills() {
     skillElement.dataset.id = String(skill.id);
     skillElement.alt = skill.name;
 
-    skillElement.addEventListener('click', () => removeSkill(skill));
+    addSafeEventListener(skillElement, 'click', () => removeSkill(skill));
     selectedSkillsList.appendChild(skillElement);
   });
 
@@ -108,9 +109,9 @@ function removeSkill(skill: Skill) {
 function updateURL() {
   const params = new URLSearchParams(window.location.search);
   const selectedIds = selectedSkills.map(skill => skill.id).join(',');
-  if(selectedIds) {
+  if (selectedIds) {
     params.set(QUERY_KEY, selectedIds);
-  }else {
+  } else {
     params.delete(QUERY_KEY);
   }
   const newPath = params.toString() ? '?' + params.toString() : window.location.pathname;
@@ -118,7 +119,7 @@ function updateURL() {
 }
 
 function updateSkillSelectionUI() {
-  document.querySelectorAll('.skill-icon').forEach(icon => {
+  document.querySelectorAll<HTMLImageElement>('.skill-icon').forEach(icon => {
     const id = Number(icon.dataset.id);
     if (selectedSkills.some(s => s.id === id)) {
       icon.classList.add('selected');
@@ -148,10 +149,9 @@ function loadSkillsFromURL() {
 export function updateSkillsUI() {
   loadSkillsFromURL();
   renderSkills();
+
+  const resetSkillsBtn = document.getElementById('reset-skills-btn') as HTMLButtonElement;
+  addSafeEventListener(resetSkillsBtn, 'click', () => {
+    showResetModal(QUERY_KEY, '技能');
+  });
 }
-
-const resetSkillsBtn = document.getElementById('reset-skills-btn') as HTMLButtonElement;
-
-resetSkillsBtn.addEventListener('click', () => {
-  showResetModal(QUERY_KEY, '技能');
-});

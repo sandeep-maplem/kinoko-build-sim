@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/jobs.css">
     <link rel="stylesheet" href="./css/equipments.css">
     <link rel="stylesheet" href="./css/skills.css">
+    <link rel="stylesheet" href="./css/pals.css">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
             <div class="section-header">
                 <h2>職業</h2>
             </div>
-            <div class="jobs-option-container">
+            <div id="jobs-option-container">
                 <div class="job-options">
                     <input type="radio" id="job-1" name="job" value="1" checked>
                     <label for="job-1">武聖</label>
@@ -86,7 +87,7 @@
         <section id="skills">
             <div class="section-header">
                 <h2>技能</h2>
-                <button id="reset-skills-btn" class="reset-btn" title="スキルをリセット">↺</button>
+                <button id="reset-skills-btn" class="reset-btn" title="技能をリセット">↺</button>
             </div>
             <div class="skills-container">
                 <div class="skills-selected">
@@ -102,8 +103,21 @@
         </section>
 
         <section id="pals">
-            <h2>仲間</h2>
-            <p>仲間を選択します。</p>
+            <div class="section-header">
+                <h2>仲間</h2>
+                <button id="reset-pals-btn" class="reset-btn" title="仲間をリセット">↺</button>
+            </div>
+            <div class="pals-container">
+                <div class="pals-selected">
+                    <h3>選択済み仲間</h3>
+                    <div id="selected-pals" class="pals-list"></div>
+                </div>
+
+                <div class="pals-pool">
+                    <h3>仲間一覧</h3>
+                    <div id="pals-list" class="pals-grid"></div>
+                </div>
+            </div>
         </section>
 
         <section id="relics">

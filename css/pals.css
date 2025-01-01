@@ -1,0 +1,52 @@
+.pals-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.pals-selected {
+    margin-bottom: 30px;
+}
+
+.pals-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    min-height: 70px;
+}
+
+.pals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+.pal-icon {
+    width: 64px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, outline 0.2s;
+}
+
+.pal-icon:hover {
+    transform: scale(1.1);
+}
+
+.pal-icon.selected {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+}
+
+.pal-icon.empty {
+    display: inline-block;
+    margin: 2px;
+    width: 64px;
+    height: 64px;
+    background-color: #f0f0f0;
+    outline: 3px solid #cccccc;
+    outline-offset: 2px;
+    box-sizing: border-box;
+}

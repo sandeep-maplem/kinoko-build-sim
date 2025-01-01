@@ -1,4 +1,5 @@
 import { showResetModal } from './resetModal';
+import { addSafeEventListener } from './helper';
 
 interface EquipmentOption {
   id: number;
@@ -31,7 +32,7 @@ function ensureEquipmentList() {
 }
 
 function renderEquipments() {
-  const equipmentList  = ensureEquipmentList();
+  const equipmentList = ensureEquipmentList();
   equipmentList.innerHTML = '';
   const totalCountDisplay = document.getElementById('equipments-total-count') as HTMLSpanElement;
   equipmentOptions.forEach((option, index) => {
@@ -102,7 +103,7 @@ export function updateEquipmentsUI() {
   const equipmentList = ensureEquipmentList();
 
   if (!equipmentList.dataset.listener) {
-    equipmentList.addEventListener('click', (event) => {
+    addSafeEventListener(equipmentList, 'click', (event) => {
       const target = event.target as HTMLButtonElement;
       const action = target.dataset.action;
       const index = Number(target.dataset.index);
@@ -132,13 +133,14 @@ export function updateEquipmentsUI() {
 
     equipmentList.dataset.listener = 'true';
   }
+
+  const resetEquipmentsBtn = document.getElementById('reset-equipments-btn') as HTMLButtonElement;
+
+  addSafeEventListener(resetEquipmentsBtn, 'click', () => {
+    showResetModal(QUERY_KEY, '装備');
+  });
 }
 
-const resetEquipmentsBtn = document.getElementById('reset-equipments-btn') as HTMLButtonElement;
-
-resetEquipmentsBtn.addEventListener('click', () => {
-  showResetModal(QUERY_KEY, '装備');
-});
 
 // for test
 export function getEquipmentState() {

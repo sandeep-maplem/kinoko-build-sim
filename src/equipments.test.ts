@@ -5,6 +5,7 @@ describe('loadEquipmentsFromURL', () => {
     document.body.innerHTML = `
       <div id="equipments-option-list"></div>
       <span id="equipments-total-count">0</span>
+      <button id="reset-equipments-btn" class="reset-btn" title="装備をリセット">↺</button>
     `;
   });
 
