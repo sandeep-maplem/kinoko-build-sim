@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/skills.css">
     <link rel="stylesheet" href="./css/pals.css">
     <link rel="stylesheet" href="./css/relics.css">
+    <link rel="stylesheet" href="./css/statues.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
         <div class="tab" data-target="#skills">技能</div>
         <div class="tab" data-target="#pals">仲間</div>
         <div class="tab" data-target="#relics">遺物</div>
-        <div class="tab" data-target="#statue">彫像</div>
+        <div class="tab" data-target="#statues">彫像</div>
         <div class="tab" data-target="#back-talents">背飾り能力</div>
         <div class="tab" data-target="#enchantments">神器付魔</div>
         <div class="tab" data-target="#awakening">職業覚醒</div>
@@ -146,9 +147,18 @@
             </div>
         </section>
 
-        <section id="statue">
-            <h2>彫像</h2>
-            <p>彫像を選択します。</p>
+        <section id="statues">
+            <div class="section-header">
+                <h2>彫像</h2>
+                <button id="reset-statues-btn" class="reset-btn" title="彫像をリセット">↺</button>
+            </div>
+            <div class="statue-container">
+                <h3>彫像の選択</h3>
+                <div id="statue-list" class="statue-option-list"></div>
+                <div class="statue-summary">
+                    合計: <span id="statue-total-count">0</span> / 5
+                </div>
+            </div>
         </section>
 
         <section id="back-talents">
