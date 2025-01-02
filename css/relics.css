@@ -1,0 +1,54 @@
+.relics-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.relics-selected {
+    margin-bottom: 30px;
+}
+
+.relics-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    min-height: 70px;
+}
+
+.relic-group {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    justify-content: center;
+    gap: 16px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.relic-icon {
+    width: 64px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, outline 0.2s;
+}
+
+.relic-icon:hover {
+    transform: scale(1.1);
+}
+
+.relic-icon.selected {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+}
+
+.relic-icon.empty {
+    display: inline-block;
+    margin: 2px;
+    width: 64px;
+    height: 64px;
+    background-color: #f0f0f0;
+    outline: 3px solid #cccccc;
+    outline-offset: 2px;
+    box-sizing: border-box;
+}

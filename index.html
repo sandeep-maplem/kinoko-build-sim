@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/equipments.css">
     <link rel="stylesheet" href="./css/skills.css">
     <link rel="stylesheet" href="./css/pals.css">
+    <link rel="stylesheet" href="./css/relics.css">
 </head>
 
 <body>
@@ -128,8 +129,21 @@
         </section>
 
         <section id="relics">
-            <h2>遺物</h2>
-            <p>遺物を選択します。</p>
+            <div class="section-header">
+                <h2>遺物</h2>
+                <button id="reset-relics-btn" class="reset-btn" title="遺物をリセット">↺</button>
+            </div>
+            <div class="relics-container">
+                <div class="relics-selected">
+                    <h3>選択済み遺物</h3>
+                    <div id="selected-relics" class="relics-list"></div>
+                </div>
+
+                <div class="relics-pool">
+                    <h3>遺物一覧</h3>
+                    <div id="relics-list" class="relic-group-container"></div>
+                </div>
+            </div>
         </section>
 
         <section id="statue">

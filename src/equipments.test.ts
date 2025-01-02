@@ -1,4 +1,4 @@
-import { updateEquipmentsUI, getEquipmentState } from './equipments';
+import { initEquipmentsUI, getEquipmentState } from './equipments';
 
 describe('loadEquipmentsFromURL', () => {
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe('loadEquipmentsFromURL', () => {
 
   test('クエリから正しく武器がロードされる', () => {
     window.history.pushState({}, '', '?equipments=1:5,2:10');
-    updateEquipmentsUI();
+    initEquipmentsUI();
 
     const state = getEquipmentState();
     expect(state.equipmentOptions[0].count).toBe(5);
@@ -21,7 +21,7 @@ describe('loadEquipmentsFromURL', () => {
 
   test('合計がMAX_TOTALを超えない', () => {
     window.history.pushState({}, '', '?equipments=1:15,2:10');
-    updateEquipmentsUI();
+    initEquipmentsUI();
 
     const state = getEquipmentState();
     expect(state.equipmentOptions[0].count).toBe(10);
@@ -31,7 +31,7 @@ describe('loadEquipmentsFromURL', () => {
 
   test('不正なIDは無視される', () => {
     window.history.pushState({}, '', '?equipments=999:5,1:3');
-    updateEquipmentsUI();
+    initEquipmentsUI();
 
     const state = getEquipmentState();
     expect(state.equipmentOptions[0].count).toBe(3);
