@@ -4,6 +4,7 @@ import { initSkillsUI } from './skills';
 import { initPalsUI } from './pals';
 import { initRelicsUI } from './relics';
 import { initStatuesUI } from './statues';
+import { initEnchantmentsUI } from './enchantment';
 
 export function updateAllUI() {
   initJobsUI();
@@ -12,4 +13,5 @@ export function updateAllUI() {
   initPalsUI();
   initRelicsUI();
   initStatuesUI();
+  initEnchantmentsUI();
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/pals.css">
     <link rel="stylesheet" href="./css/relics.css">
     <link rel="stylesheet" href="./css/statues.css">
+    <link rel="stylesheet" href="./css/enchantment-sets.css">
 </head>
 
 <body>
@@ -167,8 +168,13 @@
         </section>
 
         <section id="enchantments">
-            <h2>神器付魔</h2>
-            <p>神器付魔を選択します。</p>
+            <div class="section-header">
+                <h2>神器付魔</h2>
+                <button id="reset-enchantments-btn" class="reset-btn" title="神器付魔をリセット">↺</button>
+            </div>
+            <div id="enchantment-sets-container" data-total="0">
+                <h3>セット効果</h3>
+            </div>
         </section>
 
         <section id="awakening">
